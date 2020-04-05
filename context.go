@@ -13,7 +13,7 @@ type Context struct {
 	RawArgs []string
 
 	// Cmd is the currently executing command. This is empty for NotFound and Interrupt.
-	Cmd Cmd
+	Cmd *Cmd
 
 	Actions
 }

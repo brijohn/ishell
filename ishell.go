@@ -668,7 +668,7 @@ func newContext(s *Shell, cmd *Cmd, args []string) *Context {
 		progressBar: copyShellProgressBar(s),
 		Args:        args,
 		RawArgs:     s.rawArgs,
-		Cmd:         *cmd,
+		Cmd:         cmd,
 		contextValues: func() contextValues {
 			values := contextValues{}
 			for k := range s.contextValues {
