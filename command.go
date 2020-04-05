@@ -35,6 +35,9 @@ type Cmd struct {
 	// CompleterWithPrefix takes precedence
 	CompleterWithPrefix func(prefix string, args []string) []string
 
+	// parent command
+	Parent *Cmd
+
 	// subcommands.
 	children map[string]*Cmd
 }
@@ -45,6 +48,7 @@ func (c *Cmd) AddCmd(cmd *Cmd) {
 		c.children = make(map[string]*Cmd)
 	}
 	c.children[cmd.Name] = cmd
+	cmd.Parent = c
 }
 
 // DeleteCmd deletes cmd from subcommands.
